@@ -1,4 +1,4 @@
-instance_type = "t2.micro"
+instance-type = "t2.micro"
 key           = "terra1"
 vpc_cidr      = "172.16.0.0/16"
 subnet_cidr   = "172.16.10.0/24"
