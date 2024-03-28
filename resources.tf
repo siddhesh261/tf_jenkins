@@ -10,7 +10,7 @@ resource "aws_subnet" "subnet_lab5" {
   vpc_id            = aws_vpc.vpc_lab5.id
   cidr_block        = var.subnet_cidr
   availability_zone = var.region
-
+  map_public_ip_on_launch = true
   tags = {
     Name = "subnet for lab5"
   }
@@ -67,3 +67,13 @@ resource "aws_security_group_rule" "egress" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.SG_lab5.id
 }
+
+/*resource "aws_eip" "VPC_A_EIP" {
+  instance = aws_instance.Lab5.id
+  vpc      = true
+}
+
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = aws_instance.Lab5.id
+  allocation_id = aws_eip.VPC_A_EIP.id
+}*/
